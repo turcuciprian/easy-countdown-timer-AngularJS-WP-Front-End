@@ -5,14 +5,21 @@ app.controller("mainController", function(){
 var tThis = this;
 tThis.timers=[
   {
-    title: ' Timer1',
-    heading: ' Heading1'
+    id:0,
+    title: 'Timer',
+    name: 'timer'
   }
 ];
 tThis.AddTimer = function(){
-  tThis.timers.push({
-    title: ' Timer'+tThis.timers.length+1,
-    heading: ' Heading'+tThis.timers.length+1
-  })
-}
+  var newID = (tThis.timers.length ==  0 ? 0:tThis.timers[tThis.timers.length-1].id+1);
+  var newTimer = {
+    id:newID,
+    title: ' Timer'+newID,
+    name: ' timer'+newID
+  };
+  tThis.timers.push(newTimer)
+};
+tThis.removeTimer = function(i){
+  tThis.timers.splice(i,1);
+};
 })
