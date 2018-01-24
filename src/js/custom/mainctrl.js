@@ -7,7 +7,7 @@ tThis.timers=[
   {
     id:0,
     title: 'Timer',
-    name: 'timer'
+    name: 'timer',
     endDate: ''
   }
 ];
