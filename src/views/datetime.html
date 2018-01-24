@@ -1,0 +1,28 @@
+<div class="container-fluid">
+  <div class="row main-content">
+    <div class="col-lg-12 main">
+      <div class="datetime" ng-controller="DatetimeController as dtctrl">
+        <div class="datetimeTable">
+          <div class="btns">
+            <button class="ybtn" type="button" name="button" goto-path='/datetime/add'>Add</button>
+            <button ng-show="dtctrl.trIndex != -1" class="gbtn" type="button" name="button" ng-click="dtctrl.goToEdit()">Edit</button>
+            <button ng-show="dtctrl.trIndex != -1" class="rbtn" ng-click="showConfirm($event)" type="button" name="button">Delete</button>
+
+          </div>
+          <table>
+            <tr>
+              <th>Name</th>
+              <th>Type</th>
+              <th>Preview</th>
+            </tr>
+            <tr ng-repeat="item in dtctrl.datetimeObj" ng-click="dtctrl.clicked($index)" ng-class="{active : dtctrl.trIndex==$index}">
+              <td>{{item.name}}</td>
+              <td>{{item.type}}</td>
+              <td>{{item.preview}}</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

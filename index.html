@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset='utf-8'>
+  <title>Easy Countdown Timer</title>
+</head>
+
+<body ng-app="ectWP">
+  <div ng-controller="mainController as mc">
+    <ang-accordion one-at-a-time="true">
+      <collapsible-item item-title="{{item.heading}}" ng-repeat="item in mc.timers">
+        <div>{{item.title}}</div>
+      </collapsible-item>
+
+      ...
+      <!-- More collapsible items -->
+    </ang-accordion>
+  </div>
+  <script src="./dist/commons.js"></script>
+  <script src="./dist/bundle.js"></script>
+</body>
+
+</html>
