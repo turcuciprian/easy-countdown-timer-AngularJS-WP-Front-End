@@ -8,6 +8,7 @@ tThis.timers=[
     id:0,
     title: 'Timer',
     name: 'timer'
+    endDate: ''
   }
 ];
 tThis.AddTimer = function(){
