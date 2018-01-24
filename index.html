@@ -7,15 +7,19 @@
 </head>
 
 <body ng-app="ectWP">
-  <div ng-controller="mainController as mc">
+  <div ng-controller="mainController as mc" class="ectPanels">
     <ang-accordion one-at-a-time="true">
       <collapsible-item item-title="{{item.heading}}" ng-repeat="item in mc.timers">
-        <div>{{item.title}}</div>
+        <div>
+          Timer End Date:
+          <md-datepicker md-hide-icons="all" md-open-on-focus ng-model="ctrl.myDate" md-placeholder="Enter date"></md-datepicker>
+          <br/>
+Shortcode: <input class="readonly" type="text" name="" value="[ect-short{{$index}}]" readonly>
+        </div>
       </collapsible-item>
-
-      ...
       <!-- More collapsible items -->
     </ang-accordion>
+    <button type="button" name="button" ng-click="mc.AddTimer()">Add a Timer</button>
   </div>
   <script src="./dist/commons.js"></script>
   <script src="./dist/bundle.js"></script>
