@@ -1,16 +1,17 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <meta charset='utf-8'>
   <title>Easy Countdown Timer</title>
 </head>
+
 <body ng-app="ectWP">
   <div ng-controller="mainController as mc" class="ectPanels">
     <ang-accordion one-at-a-time="true">
       <collapsible-item item-title="{{item.title}}" ng-repeat="item in mc.timers">
         <div>
-          Timer Title: <input type="text" ng-model="item.title" name="" value=""> <br/>
-          Timer End Date:
+          Timer Title: <input type="text" ng-model="item.title" name="" value=""> <br/> Timer End Date:
           <md-datepicker md-hide-icons="all" md-open-on-focus ng-model="ctrl.myDate" ng-model="{{item.endDate}}" md-placeholder="Enter date"></md-datepicker>
           <br/> Shortcode: <input class="readonly" type="text" name="" value="[ect-short-{{item.id}}]" readonly>
           <button type="button" name="button" ng-click="mc.removeTimer($index)">Remove Timer</button>
@@ -18,7 +19,13 @@
       </collapsible-item>
       <!-- More collapsible items -->
     </ang-accordion>
-    <button type="button" name="button" ng-click="mc.AddTimer()">Add a Timer</button>
+    <p>
+      <button type="button" name="button" ng-click="mc.AddTimer()">Add a Timer</button>
+    </p>
+    <p>
+      <button type="button" name="button" ng-click="mc.getTimers()">Get Timers</button>
+
+    </p>
   </div>
   <script src="./dist/commons.js"></script>
   <script src="./dist/bundle.js"></script>
