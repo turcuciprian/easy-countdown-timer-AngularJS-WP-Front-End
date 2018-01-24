@@ -21,9 +21,22 @@ app.controller("mainController", ['generalService', function(generalService) {
   tThis.removeTimer = function(i) {
     tThis.timers.splice(i, 1);
   };
+  tThis.saveTimers = function(){
+    var newData = {
+      'data' : tThis.timers
+    };
+    tThis.ectMessage = 'Saving Timers.... (please wait)';
+    generalService.setTimers(newData).then(function(response){
+      tThis.ectMessage = 'Saved !';
+    });
+  };
   tThis.resetDefaults = function(){
     generalService.getTimers().then(function(response){
-      console.log(response);
+      var tempData = response.data;
+      if(tempData){
+        tThis.timers=tempData;
+      }
     })
   };
+  tThis.resetDefaults();
 }])

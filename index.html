@@ -9,28 +9,32 @@
 <body ng-app="ectWP">
   <div ng-controller="mainController as mc" class="ectPanels">
     <ang-accordion one-at-a-time="true">
-      <collapsible-item item-title="{{item.title}}" ng-repeat="item in mc.timers">
+      <collapsible-item item-title="{{item.title}}" ng-repeat="item in mc.timers track by $index">
         <div>
 
-          Timer Title: <input class="titleInp" type="text" ng-model="item.title" name="" value=""> <br/>
-          Timer End Date:
-          <md-datepicker  class="datePicker" type="text" md-hide-icons="all" md-open-on-focus ng-model="ctrl.myDate" ng-model="{{item.endDate}}" md-placeholder="Enter date"></md-datepicker>
+          Timer Title: <input class="titleInp" type="text" ng-model="item.title" name="" value=""> <br/> Timer End Date:
+          <md-datepicker class="datePicker" type="text" md-hide-icons="all" md-open-on-focus ng-model="item.date" md-placeholder="Enter date"></md-datepicker>
+          <br/> Shortcode: <input class="readonly" type="text" name="" value="[ect-short nr=&quot;{{item.id}}&quot;]" readonly>
 
-         
-          <br/> Shortcode: <input class="readonly" type="text" name="" value="[ect-short-{{item.id}}]" readonly>
-
-<md-button class="md-raised md-warn btnRemove" name="button" type="button" ng-click="mc.removeTimer($index)">Remove Timer</md-button>
+          <md-button class="md-raised md-warn btnRemove" name="button" type="button" ng-click="mc.removeTimer($index)">Remove Timer</md-button>
         </div>
       </collapsible-item>
       <!-- More collapsible items -->
     </ang-accordion>
+    <p>
+      <md-button class="md-raised md-primary" name="button" ng-click="mc.AddTimer()">Add</md-button>
+    </p>
+    <p>
+      <md-button class="md-raised md-default" type="button" name="button" ng-click="mc.saveTimers()">Save Timers</md-button>
 
-     <md-button class="md-raised md-primary" name="button" ng-click="mc.AddTimer()">Add a Timer</md-button>
-
-       <md-button class="md-raised md-primary" type="button" name="button" ng-click="mc.getTimers()">Get Timers</md-button>
-
-   
+    </p>
+    <p class="ectMessage">
+      {{mc.ectMessage}}
+    </p>
   </div>
+  <script type="text/javascript">
+    window.ectPath = 'http://localhost:8888/wordpress/wp-json';
+  </script>
   <script src="./dist/commons.js"></script>
   <script src="./dist/bundle.js"></script>
 </body>

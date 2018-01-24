@@ -5,10 +5,13 @@ import {
 app.factory('generalService', ['$http',function($http) {
   return {
     setPath: function(routePath) {
-      return 'http://localhost:8888/wordpress/wp-json' + routePath;
+      return window.ectPath + routePath;
     },
     getTimers: function(){
       return $http.get(this.setPath('/ect/getTimers'));
+    },
+    setTimers: function(data){
+      return $http.put(this.setPath('/ect/setTimers'),data);
     }
   }
 }]);
