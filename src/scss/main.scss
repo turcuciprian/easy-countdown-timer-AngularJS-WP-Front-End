@@ -1,9 +1,43 @@
-#ectPageContainer{
-  margin:40px 0;
+#ectPageContainer {
+  margin: 40px 0;
 }
-.ectPanels{
-  max-width:500px;
-  .readonly{
-    background-color: #0083d6;
+
+.ectPanels {
+  max-width: 500px;
+.title{
+  background-color: rgba(202, 199, 246, 0.5);
+  background-image: none;
+font-weight: bold;
+border-radius: 18px 18px 18px 18px;
+-moz-border-radius: 18px 18px 18px 18px;
+-webkit-border-radius: 18px 18px 18px 18px;
+
+}
+  .titleInp {
+    // padding: 15px;
+    margin: 20px;
+  }
+
+  .datePicker {
+    padding: 15px;
+    margin: 14px;
+    input{
+      padding:0px;
+      border:1px solid #9c9898;
+      text-align: center;
+      line-height: 25px;
+    }
+  }
+
+  .readonly {
+    background-color: #0e50e6;
+    color: white;
+    margin: 14px;
+    padding:5px;
+  }
+
+  .btnRemove {
+    float: right;
+    margin-bottom: 20px;
   }
 }
